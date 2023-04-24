@@ -13,6 +13,11 @@ class IndexController extends Action {
 		$this->render('index');
 	}
 
+	public function entrar() {
+
+		$this->render('entrar');
+	}
+
 	public function inscreverse() {
 
 		$this->render('inscreverse');
