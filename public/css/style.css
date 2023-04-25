@@ -19,7 +19,13 @@ p {
   margin: 0;
 }
 
-#header {
+#aside {
+  /* background: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1; */
   box-shadow: 0 2px 5px 0 rgba(168, 168, 168, 0.25);
 }
 
@@ -43,9 +49,22 @@ p.name-logo {
   color: #333333;
 }
 
+p.segundo-name-logo {
+  margin-left: 5px;
+  font-weight: 600;
+  color: #8ee91a;
+}
+
+@media only screen and (max-width: 995px) {
+  p.segundo-name-logo {
+    font-size: 1rem;
+  }
+}
+
 form.form-search {
   margin: 0 auto;
   min-width: 400px;
+  position: relative;
 }
 
 input.input-search {
@@ -61,16 +80,35 @@ input.input-search {
   box-shadow: 0px 7px 11px -10px #8f8d8d9d;
 }
 
+input.input-search:focus {
+  outline: 1px solid #8ee91a;
+}
+
 .sarch-icon {
-  position: relative;
-  top: 2px;
-  right: 290px;
+  position: absolute;
+  top: 7px;
+  right: 20px;
 }
 
 .sarch-icon i {
   color: #8ee91a;
   font-size: 1.7rem;
   text-align: center;
+}
+
+.user-box a {
+  color: #636363;
+  font-size: 30px;
+  font-weight: 300;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.shopping-box a {
+  color: #8ee91a;
+  font-size: 30px;
+  font-weight: 300;
+  cursor: pointer;
 }
 
 /*Nav*/
@@ -96,6 +134,13 @@ input.input-search {
 }
 
 .nav ul li a:hover {
+  align-items: center;
+  color: #239729af;
+  border-bottom: 1px solid #239729af;
+  transition: 0.3s ease;
+}
+
+ul li a.actived {
   align-items: center;
   color: #239729af;
   border-bottom: 1px solid #239729af;
@@ -599,11 +644,15 @@ p.description-produto-two-preço {
   height: 60px;
   border-radius: 4px;
   position: relative;
-  border: 1px solid black;
+  border: 1px solid #979797;
   padding: 0 10px;
   outline: transparent;
   font-size: 0.9rem;
   font-weight: 400;
+}
+
+.field-input:focus {
+  border: 2px solid #8ee91a;
 }
 
 .create-account-button {
@@ -621,4 +670,34 @@ p.description-produto-two-preço {
 }
 .create-account-button:hover {
   background-color: #52c6003c;
+}
+
+#sobre-nos {
+  background-color: #f5f5e5;
+  padding: 50px;
+}
+
+.card-sobre-nos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sn-info1 {
+  margin-right: 50px;
+}
+
+.sn-info1 h4,
+.sn-info2 h4 {
+  font-size: 3rem;
+  font-weight: 600;
+  text-align: start;
+  margin-bottom: 20px;
+}
+
+.sn-info1 p,
+.sn-info2 p {
+  font-size: 1rem;
+  font-weight: 400;
 }

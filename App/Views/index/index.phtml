@@ -2,19 +2,31 @@
 <html lang="pt-BR">
 
 <body>
-  <main>
-    <header id="header">
+  <main id="home">
+    <aside id="aside">
       <div class="container">
         <div class="logo-box">
           <img src="/img/Imagem.png" alt="logo-magazine esperança">
-          <p class="name-logo">Magazine<span style="color: #8EE91A;"> Esperança</span></p>
+          <p class="name-logo">Magazine
+          <p class="segundo-name-logo"> Esperança</p>
+          </p>
           <form class="form-search" action="">
             <input class="input-search" type="search" placeholder="Busque seu produto aqui...">
+            <div class="sarch-icon">
+              <i class="material-symbols-outlined">
+                search
+              </i>
+            </div>
           </form>
-          <div class="sarch-icon">
-            <i class="material-symbols-outlined">
-              search
-            </i>
+          <div class="user-box">
+            <a href="/entrar" class="material-symbols-outlined">
+              account_circle
+            </a>
+          </div>
+          <div class="shopping-box">
+            <a href="#" class="material-symbols-outlined">
+              shopping_bag
+            </a>
           </div>
         </div>
         <div class="nav">
@@ -24,17 +36,14 @@
             </i>
             <h4>categoria</h4>
           </div>
-          <ul>
-            <li><a href="">Home</a></li>
-            <li><a href="">Produtos</a></li>
-            <li><a href="">Sobre</a></li>
+          <ul class="nav-link">
+            <li><a class="actived" href="#home">Home</a></li>
+            <li><a href="#produto">Produtos</a></li>
+            <li><a href="#sobre-nos">Sobre</a></li>
           </ul>
         </div>
-        <div class="user-box">
-
-        </div>
       </div>
-    </header>
+    </aside>
     <section class="banner">
       <div class="container">
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -75,7 +84,7 @@
         </div>
       </div>
     </section>
-    <section class="container-produto">
+    <section class="container-produto" id="produto">
       <div class="container">
         <div class="card-produto">
           <div class="produto1">
@@ -275,6 +284,41 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+    <section id="sobre-nos">
+      <div class="container">
+        <div class="card-sobre-nos">
+          <div class="sn-info1">
+            <h4>História e evolução da empresa</h4>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur numquam ut, architecto
+              quae
+              excepturi aliquam, veniam a id nam ipsam non quo cupiditate mollitia esse placeat tempore
+              dignissimos, voluptatibus culpa! Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Architecto eius necessitatibus, harum laborum accusamus, iusto, quo illo cupiditate corrupti
+              consequuntur optio minima odio consequatur velit! Voluptatibus delectus distinctio ab in.
+              Lorem
+              ipsum dolor sit amet consectetur adipisicing elit. Ullam consequatur mollitia laboriosam
+              dicta
+              nam sapiente quidem. Iste rerum facere, libero molestiae quas repellat provident nesciunt
+              aliquam nobis quos aspernatur corrupti!</p>
+          </div>
+          <div class="sn-info2">
+            <h4>Sua loja de cosmético e beleza</h4>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur numquam ut, architecto
+              quae
+              excepturi aliquam, veniam a id nam ipsam non quo cupiditate mollitia esse placeat tempore
+              dignissimos, voluptatibus culpa! Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Architecto eius necessitatibus, harum laborum accusamus, iusto, quo illo cupiditate corrupti
+              consequuntur optio minima odio consequatur velit! Voluptatibus delectus distinctio ab in.
+              Lorem
+              ipsum dolor sit amet consectetur adipisicing elit. Ullam consequatur mollitia laboriosam
+              dicta
+              nam sapiente quidem. Iste rerum facere, libero molestiae quas repellat provident nesciunt
+              aliquam nobis quos aspernatur corrupti!</p>
+          </div>
+        </div>
+
       </div>
     </section>
   </main>
