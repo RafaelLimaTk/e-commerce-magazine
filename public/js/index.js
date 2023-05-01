@@ -9,7 +9,6 @@
       let href = link.getAttribute("href");
 
       let h2 = document.querySelector(href);
-      console.log(h2);
       return h2.getBoundingClientRect().top;
     });
 
@@ -21,8 +20,6 @@
     if (linkAtivo) {
       linkAtivo.classList.add("actived");
     }
-
-    console.log(positions);
   }
 
   function pegaUltimoElementoVisto(_positions) {

@@ -1,1 +1,74 @@
-<h1>cheguei</h1>
+<head>
+  <style>
+
+  </style>
+</head>
+
+<body id="inscreverse">
+  <main>
+    <header class="page-header">
+      <div class="logo">
+        <img src="/img/Imagem.png" alt="logo-magazine esperança">
+      </div>
+    </header>
+    <section id="main-section">
+      <div class="container-card-form-subscribe">
+        <form class="subscribe-form" action="/registrar" method="post">
+          <label class="label" for="nome"> Primeiro nome
+            <input class="field-input" type="text" name="nome" id="nome" placeholder="Insira seu primeiro nome">
+          </label>
+          <label class="label" for="Sobrenome"> Sobrenome
+            <input class="field-input" type="text" name="Sobrenome" id="sobre-nome" placeholder="Insira seu sobrenome">
+          </label>
+          <label class="label" for="email"> Email
+            <input class="field-input" type="email" name="email" id="email" placeholder="Insira seu Email">
+          </label>
+          <label class="label" for="password"> Senha
+            <input class="field-input" type="password" name="senha" id="password" placeholder="ex: ▪▪▪▪▪▪▪▪▪▪▪▪▪">
+          </label>
+          <label class="label" for="password-2"> Repetir senha
+            <input class="field-input" type="password" name="senha-2" id="password-2" placeholder="Repetir senha">
+          </label>
+          <label class="label" for="CPF"> CPF
+            <input class="field-input" type="number" name="cpf" id="cpf" placeholder="000.000.000-00">
+          </label>
+          <label class="label" for="data-nasc"> Data de nascimento
+            <input class="field-input" type="date" name="data-nasc" id="data-nasc" placeholder="DD/MM/AAAA">
+          </label>
+          <label class="label"> Sexo
+            <div class="form-group">
+              <div class="form-group-sexo">
+                <input class="field-input-sexo" type="radio" name="sexo" id="sexo-m" value="m"> Masculino
+              </div>
+              <div class="form-group-sexo">
+                <input class="field-input-sexo" type="radio" name="sexo" id="sexo-f" value="f"> Feminino
+              </div>
+            </div>
+          </label>
+          <button type="submit" class="btn btn-success btn-lg btn-block mb-3"
+            style="background-color: #53C600; border-color: #53C600; width: 100%; border-radius: 2px;">Criar conta
+          </button>
+          <a class="login-redirection-button" href="/entrar">Já possuo uma conta</a>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+  <?php if ($this->view->erroCadastro) : ?>
+  <script>
+  Toastify({
+    text: "Erro ao tentar realizar o cadastro, verifique os campos e preencha novamente!",
+    duration: 5000,
+    close: true,
+    gravity: "top",
+    position: "right",
+    backgroundColor: "#FFA500",
+    className: "custom-toast",
+  }).showToast();
+  </script>
+  <?php endif; ?>
+
+</body>
