@@ -68,4 +68,23 @@ class Usuario extends Model
 
     return $stmt->fetchAll(\PDO::FETCH_ASSOC);
   }
+
+  public function autenticar() {
+    $query = "select ID_User, nome, sobrenome, email, senha from usuario where email = :email and senha = :senha";
+    $stmt = $this->db->prepare($query);
+    $stmt->bindValue(':email', $this->__get('email'));
+    $stmt->bindValue(':senha', $this->__get('senha'));
+    $stmt->execute();
+    
+    $usuario = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+    if($usuario['ID_User'] != '' && $usuario['nome'] != '' 
+        && $usuario['sobrenome'] != '') {
+      $this->__set('ID_User', $usuario['ID_User']);
+      $this->__set('nome', $usuario['nome']); 
+      $this->__set('sobrenome', $usuario['sobrenome']);
+    }
+
+    return $this;
+  }
 }

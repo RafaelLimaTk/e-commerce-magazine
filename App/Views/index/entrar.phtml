@@ -9,7 +9,7 @@
     </header>
     <section id="main-section">
       <div class="container-card-form">
-        <form class="subscribe-form" action="">
+        <form class="subscribe-form" action="/autenticar" method="post">
           <label class="label" for="email"> Email
             <input class="field-input" type="email" name="email" id="email" placeholder="Insira seu Email">
           </label>
@@ -23,4 +23,21 @@
       </div>
     </section>
   </main>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+  <?php if ($this->view->login == 'erro') : ?>
+  <script>
+  Toastify({
+    text: "Credenciais inválidas. Tente novamente",
+    duration: 5000,
+    close: true,
+    gravity: "top",
+    position: "right",
+    backgroundColor: "#FFA500",
+    className: "custom-toast",
+  }).showToast();
+  </script>
+  <?php endif; ?>
 </body>

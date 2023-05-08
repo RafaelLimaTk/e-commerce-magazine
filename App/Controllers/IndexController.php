@@ -14,7 +14,8 @@ class IndexController extends Action {
 	}
 
 	public function entrar() {
-
+		
+		$this->view->login = isset($_GET['login']) ? $_GET['login'] : ''; 
 		$this->render('entrar');
 	}
 
@@ -26,12 +27,13 @@ class IndexController extends Action {
 	}
 
 	public function registrar() {
+
 		$usuario = Container::getModel('Usuario');
 
 		$usuario->__set('nome', $_POST['nome']);
 		$usuario->__set('sobrenome', $_POST['Sobrenome']);
 		$usuario->__set('email', $_POST['email']);
-		$usuario->__set('senha', $_POST['senha']);
+		$usuario->__set('senha', md5($_POST['senha']));
 		$usuario->__set('CPF', $_POST['cpf']);
 		$usuario->__set('dataNasc', $_POST['data-nasc']);
 		$sexo = isset($_POST['sexo']) ? $_POST['sexo'] : 'm';
