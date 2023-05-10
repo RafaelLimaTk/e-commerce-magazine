@@ -144,18 +144,20 @@
         </div>
       </div>
     </section>
+
     <section class="produtos">
       <div class="container">
         <div class="card-produto-two">
+          <?php foreach($this->view->produtos as $ID_Prod => $produto) { ?>
           <div class="produto-two">
             <div class="informacao-produto">
               <div class="imagem-produto">
                 <img src="img/69825_2_3.jpg" alt="Imagem do produto 1">
               </div>
               <div class="description-produto-two">
-                <h3>Esfoliante Ekos</h3>
-                <p class="description-produto-two-preço">R$157,00</p>
-                <p>ou 3x R$52,34</p>
+                <h3><?= $produto['modelo'] ?></h3>
+                <p class="description-produto-two-preço">R$<?= $produto['valor'] ?></p>
+                <p>ou <?= $produto['valor_parcelado']?></p>
                 <a href="">
                   <div class="description-produto-two-botton">
                     <p>Compre agora</p>
@@ -164,128 +166,11 @@
               </div>
             </div>
           </div>
-          <div class="produto-two">
-            <div class="informacao-produto">
-              <div class="imagem-produto">
-                <img src="img/69825_2_3.jpg" alt="Imagem do produto 1">
-              </div>
-              <div class="description-produto-two">
-                <h3>Esfoliante Ekos</h3>
-                <p class="description-produto-two-preço">R$157,00</p>
-                <p>ou 3x R$52,34</p>
-                <a href="">
-                  <div class="description-produto-two-botton">
-                    <p>Compre agora</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="produto-two">
-            <div class="informacao-produto">
-              <div class="imagem-produto">
-                <img src="img/69825_2_3.jpg" alt="Imagem do produto 1">
-              </div>
-              <div class="description-produto-two">
-                <h3>Esfoliante Ekos</h3>
-                <p class="description-produto-two-preço">R$157,00</p>
-                <p>ou 3x R$52,34</p>
-                <a href="">
-                  <div class="description-produto-two-botton">
-                    <p>Compre agora</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="produto-two">
-            <div class="informacao-produto">
-              <div class="imagem-produto">
-                <img src="img/69825_2_3.jpg" alt="Imagem do produto 1">
-              </div>
-              <div class="description-produto-two">
-                <h3>Esfoliante Ekos</h3>
-                <p class="description-produto-two-preço">R$157,00</p>
-                <p>ou 3x R$52,34</p>
-                <a href="">
-                  <div class="description-produto-two-botton">
-                    <p>Compre agora</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="produto-two">
-            <div class="informacao-produto">
-              <div class="imagem-produto">
-                <img src="img/69825_2_3.jpg" alt="Imagem do produto 1">
-              </div>
-              <div class="description-produto-two">
-                <h3>Esfoliante Ekos</h3>
-                <p class="description-produto-two-preço">R$157,00</p>
-                <p>ou 3x R$52,34</p>
-                <a href="">
-                  <div class="description-produto-two-botton">
-                    <p>Compre agora</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="produto-two">
-            <div class="informacao-produto">
-              <div class="imagem-produto">
-                <img src="img/69825_2_3.jpg" alt="Imagem do produto 1">
-              </div>
-              <div class="description-produto-two">
-                <h3>Esfoliante Ekos</h3>
-                <p class="description-produto-two-preço">R$157,00</p>
-                <p>ou 3x R$52,34</p>
-                <a href="">
-                  <div class="description-produto-two-botton">
-                    <p>Compre agora</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="produto-two">
-            <div class="informacao-produto">
-              <div class="imagem-produto">
-                <img src="img/69825_2_3.jpg" alt="Imagem do produto 1">
-              </div>
-              <div class="description-produto-two">
-                <h3>Esfoliante Ekos</h3>
-                <p class="description-produto-two-preço">R$157,00</p>
-                <p>ou 3x R$52,34</p>
-                <a href="">
-                  <div class="description-produto-two-botton">
-                    <p>Compre agora</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="produto-two">
-            <div class="informacao-produto">
-              <div class="imagem-produto">
-                <img src="img/69825_2_3.jpg" alt="Imagem do produto 1">
-              </div>
-              <div class="description-produto-two">
-                <h3>Esfoliante Ekos</h3>
-                <p class="description-produto-two-preço">R$157,00</p>
-                <p>ou 3x R$52,34</p>
-                <a href="">
-                  <div class="description-produto-two-botton">
-                    <p>Compre agora</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
+          <?php } ?>
         </div>
-      </div>
     </section>
+
+
     <section id="sobre-nos">
       <div class="container">
         <div class="card-sobre-nos">

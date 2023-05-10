@@ -10,7 +10,26 @@ class IndexController extends Action {
 
 	public function index() {
 
+		$produto = Container::getModel('Produto');
+		$produtos = $produto->getAll();
+
+		// echo '<pre>';
+		// print_r($produtos);
+		// echo '</pre>';
+
+		foreach ($produtos as &$p) {
+			$valor_numerico = $p['valor_numerico'];
+			$p['valor_parcelado'] = $this->parcelas($valor_numerico, 6);
+		}
+	
+		$this->view->produtos = $produtos;
 		$this->render('index');
+	}
+
+	public function parcelas($valor, $num_parcelas) {
+    $valor_parcela = $valor / $num_parcelas;
+    $valor_parcela_formatado = number_format($valor_parcela, 2, ',', '.');
+    return "$num_parcelas"."x"." R$ $valor_parcela_formatado";
 	}
 
 	public function entrar() {
