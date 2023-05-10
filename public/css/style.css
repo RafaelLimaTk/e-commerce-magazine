@@ -146,6 +146,7 @@ ul li a.actived {
   border-bottom: 1px solid #239729af;
   transition: 0.3s ease;
 }
+
 /*fim nav*/
 
 /*fim categoria*/
@@ -179,6 +180,7 @@ h4 {
 .banner {
   margin-top: 15px;
 }
+
 /*fim banner*/
 
 .container-produto {
@@ -441,6 +443,7 @@ p.description-produto-two-preço {
   width: 100%;
   text-align: center;
 }
+
 .create-account-button:hover {
   background-color: #52c6003c;
 }
@@ -678,6 +681,7 @@ p.description-produto-two-preço {
   .produto-info .link-produto:hover::after {
     width: 90px;
   }
+
   .card-produto-two {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 20px;
@@ -699,6 +703,7 @@ p.description-produto-two-preço {
   padding: 10px;
   border-radius: 4px;
 }
+
 .subscribe-form {
   display: flex;
   flex-direction: column;
@@ -709,6 +714,7 @@ p.description-produto-two-preço {
   background-color: #ffffff;
   padding: 20px;
 }
+
 .label {
   display: flex;
   flex-direction: column;
@@ -716,6 +722,7 @@ p.description-produto-two-preço {
   color: #636363;
   width: 100%;
 }
+
 .field-input {
   height: 60px;
   border-radius: 4px;
@@ -726,6 +733,7 @@ p.description-produto-two-preço {
   font-size: 0.9rem;
   font-weight: 400;
 }
+
 .field-input:focus {
   border: 2px solid #8ee91a;
 }
@@ -772,6 +780,7 @@ p.description-produto-two-preço {
   text-align: center;
   text-decoration: none;
 }
+
 .create-account-button:hover {
   background-color: #52c6003c;
   text-decoration: none;
@@ -789,4 +798,196 @@ p.description-produto-two-preço {
   padding: 20px !important;
   border-radius: 5px !important;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* tela produto*/
+.container-pag-produto {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.area-produto {
+  display: flex;
+  width: 90%;
+  height: 500px;
+  justify-content: space-between;
+  border: 2px solid #f2ecec;
+  border-radius: 8px;
+  background-color: #fafafa;
+  margin-top: 20;
+  margin-bottom: 20;
+}
+
+.area-produto-img {
+  padding: 10px;
+  width: 400px;
+  height: 400px;
+}
+
+.area-produto-img img {
+  width: 100%;
+  height: 100%;
+  margin-top: 50px;
+  margin-left: 25px;
+}
+
+.area-produto-info {
+  margin-top: 100px;
+  margin-right: 25px;
+  background-color: #ffffff;
+  height: 270px;
+  width: 510px;
+  padding-left: 20px;
+}
+
+.info-pag-produto p:nth-child(1) {
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.27px;
+  margin: 0;
+  margin-top: 5;
+}
+
+.info-pag-produto p:nth-child(2) {
+  font-size: 12px;
+  color: #777777;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.22px;
+  margin: 0;
+  margin-top: -10;
+}
+
+.info-pag-produto p:nth-child(3) {
+  font-size: 14px;
+  color: #777777;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.22px;
+  margin: 0;
+  margin-top: 8;
+}
+
+.info-pag-produto p:nth-child(4) {
+  font-size: 20px;
+  color: #777777;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.22px;
+  margin: 0;
+  margin-top: 15;
+  text-decoration: line-through;
+
+}
+
+.info-pag-produto p:nth-child(5) {
+  font-size: 32px;
+  font-weight: 700;
+  color: #8ee91a;
+  margin: 0;
+  line-height: 20px;
+  letter-spacing: 0;
+  margin-top: 5;
+}
+
+.info-pag-produto p:nth-child(6) {
+  font-size: 14px;
+  color: #777777;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.22px;
+  margin: 0;
+  margin-top: 8;
+  margin-bottom: 4;
+}
+
+.produto-comprar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 38px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.button-comprar {
+  margin: 0;
+}
+
+.description-tela-produto-botton {
+  height: 44px;
+  text-align: center;
+  line-height: normal;
+  margin: 0;
+  margin-right: 20;
+  background-color: #8ee91a;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 10px;
+  margin: 10px 0;
+  width: 150px;
+}
+
+.description-tela-produto-botton:hover {
+  background-color: #53c600;
+}
+
+.description-tela-produto a {
+  text-decoration: none;
+  padding-top: 18px;
+  padding-left: 5px;
+}
+
+.description-tela-produto-botton p {
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  margin: 0;
+  margin-top: 3;
+  font-weight: 600;
+}
+
+#quant {
+  border: 1px solid #e3e3e3;
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+}
+
+#quant:hover {
+  border-color: #636363;
+  cursor: pointer;
+}
+
+#plus {
+  border: 1px solid #e3e3e3;
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  background-color: white;
+}
+
+#plus:hover {
+  border-color: #636363;
+  cursor: pointer;
+}
+
+#minus {
+  border: 1px solid #e3e3e3;
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  background-color: white;
+
+}
+
+#minus:hover {
+  border-color: #636363;
+  cursor: pointer;
 }
