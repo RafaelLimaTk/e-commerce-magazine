@@ -12,17 +12,22 @@ class IndexController extends Action {
 
 		$produto = Container::getModel('Produto');
 		$produtos = $produto->getAll();
-
-		// echo '<pre>';
-		// print_r($produtos);
-		// echo '</pre>';
+		$produtosThree = $produto->getThreeProducts();
 
 		foreach ($produtos as &$p) {
 			$valor_numerico = $p['valor_numerico'];
 			$p['valor_parcelado'] = $this->parcelas($valor_numerico, 6);
+			$imgData = $p['img_prod'];
+			$p['imgConvertida'] = 'data:image/jpeg;base64,' . base64_encode($imgData);
 		}
-	
+
+		foreach ($produtosThree as &$pt) {
+			$imgData = $pt['img_prod'];
+			$pt['imgConvertida'] = 'data:image/jpeg;base64,' . base64_encode($imgData);
+		}
+
 		$this->view->produtos = $produtos;
+		$this->view->produtosThree = $produtosThree;
 		$this->render('index');
 	}
 

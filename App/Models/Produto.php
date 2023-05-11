@@ -28,7 +28,21 @@ class Produto extends Model
   public function getAll() {
     $query = "
     
-    select ID_Prod, marca, modelo, volume, FORMAT(preco, 2, 'pt_BR') as valor, CAST(REPLACE(preco, ',', '.') AS DECIMAL(10,2)) as valor_numerico, fk_catg from produto LIMIT 8;
+    select ID_Prod, marca, modelo, volume, FORMAT(preco, 2, 'pt_BR') as valor, CAST(REPLACE(preco, ',', '.') AS DECIMAL(10,2)) as valor_numerico, fk_catg, img_prod from produto LIMIT 8;
+    ";
+
+    $stmt = $this->db->prepare($query);
+    $stmt->execute();
+
+    return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+  }
+
+  public function getThreeProducts() {
+    $query = "
+    
+    select ID_Prod, marca, modelo, volume, FORMAT(preco, 2, 'pt_BR') as valor, CAST(REPLACE(preco, ',', '.') AS DECIMAL(10,2)) as valor_numerico, fk_catg, img_prod, Descrição
+    from produto 
+      WHERE ID_Prod IN ('16', '17', '18');
     ";
 
     $stmt = $this->db->prepare($query);

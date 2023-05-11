@@ -87,39 +87,18 @@
     <section class="container-produto" id="produto">
       <div class="container">
         <div class="card-produto">
+          <?php foreach($this->view->produtosThree as $ID_Prod => $produtosThree) { ?>
           <div class="produto1">
             <div class="produto-info">
-              <h3 class="produto-title">Óleo Trifásico Buriti</h3>
-              <p class="description-produto">Cod. 112087 - Óleo Trifásico Desodorante Corporal Ekos Buriti
-                - 200 ml</p>
+              <h3 class="produto-title"><?= $produtosThree['modelo'] ?></h3>
+              <p class="description-produto"><?= $produtosThree['Descrição'] ?></p>
               <a class="link-produto" href="">Compre agora</a>
             </div>
             <div class="img-produto">
-              <img src="img/112087_1_8-removebg-preview.png" alt="produto1">
+              <img src="<?= $produtosThree['imgConvertida'] ?>" alt="produto1">
             </div>
           </div>
-          <div class="produto1">
-            <div class="produto-info">
-              <h3 class="produto-title">Óleo Trifásico Buriti</h3>
-              <p class="description-produto">Cod. 112087 - Óleo Trifásico Desodorante Corporal Ekos Buriti
-                - 200 ml</p>
-              <a class="link-produto" href="">Compre agora</a>
-            </div>
-            <div class="img-produto">
-              <img src="img/112087_1_8-removebg-preview.png" alt="produto1">
-            </div>
-          </div>
-          <div class="produto1">
-            <div class="produto-info">
-              <h3 class="produto-title">Óleo Trifásico Buriti</h3>
-              <p class="description-produto">Cod. 112087 - Óleo Trifásico Desodorante Corporal Ekos Buriti
-                - 200 ml</p>
-              <a class="link-produto" href="">Compre agora</a>
-            </div>
-            <div class="img-produto">
-              <img src="img/112087_1_8-removebg-preview.png" alt="produto1">
-            </div>
-          </div>
+          <?php } ?>
         </div>
       </div>
     </section>
@@ -152,7 +131,7 @@
           <div class="produto-two">
             <div class="informacao-produto">
               <div class="imagem-produto">
-                <img src="img/69825_2_3.jpg" alt="Imagem do produto 1">
+                <img src="<?= $produto['imgConvertida'] ?>" alt="Imagem do produto 1">
               </div>
               <div class="description-produto-two">
                 <h3><?= $produto['modelo'] ?></h3>
