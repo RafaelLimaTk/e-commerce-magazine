@@ -3,6 +3,15 @@
 
   </style>
 </head>
+<?php
+  $nomeProduto = 'Esfoliante Ekos';
+  $marca = 'Natura';
+  $codigoProduto= '119165';
+  $pesoProduto = '200g';
+  $precoProdutoAntigo = 150.90;
+  $precoProduto = 99.99;
+  $valorParcelado = 33.00;
+?>
 
 <body>
   <main id="home">
@@ -55,12 +64,12 @@
           </div>
           <div class="area-produto-info">
             <div class="info-pag-produto">
-              <p>Esfoliante Ekos</p>
-              <p>Natura</p>
-              <p>Cod. 119165 - Esfoliante Ekos - 200g</p>
-              <p>R$ 150,90</p>
-              <p>R$ 99,99</p>
-              <p>À vista ou até 3x de 33,30 sem juros</p>
+              <p><?php echo $nomeProduto?></p>
+              <p><?php echo $marca?></p>
+              <p><?php echo 'Cod. '.$codigoProduto.' - '.$nomeProduto.' - '.$pesoProduto?></p>
+              <p><?php echo 'R$ '.$precoProdutoAntigo?></p>
+              <p><?php echo 'R$ '.$precoProduto?></p>
+              <p><?php echo 'À vista ou até 3x de '.$valorParcelado.'sem juros'?></p> <!-- Decidir quais variaveis ultilizar pra essas informações -->
             </div>
             <div class="produto-comprar">
               <div data-app="product.quantity" id="quantidade">
