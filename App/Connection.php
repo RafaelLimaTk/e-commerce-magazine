@@ -8,7 +8,7 @@ class Connection {
 		try {
 
 			$conn = new \PDO(
- 
+
 			);
 
 			return $conn;

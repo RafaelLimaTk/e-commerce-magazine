@@ -42,7 +42,7 @@ class Produto extends Model
     
     select ID_Prod, marca, modelo, volume, FORMAT(preco, 2, 'pt_BR') as valor, CAST(REPLACE(preco, ',', '.') AS DECIMAL(10,2)) as valor_numerico, fk_catg, img_prod, Descrição
     from produto 
-      WHERE ID_Prod IN ('16', '17', '18');
+      WHERE ID_Prod IN ('16', '17', '19');
     ";
 
     $stmt = $this->db->prepare($query);
