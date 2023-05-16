@@ -40,4 +40,18 @@
   }).showToast();
   </script>
   <?php endif; ?>
+
+  <?php if ($this->view->login == 'erroAutenticar') : ?>
+  <script>
+  Toastify({
+    text: "Por favor, insira seu usuário e senha para continuar",
+    duration: 5000,
+    close: true,
+    gravity: "top",
+    position: "right",
+    backgroundColor: "#4169E1",
+    className: "custom-toast",
+  }).showToast();
+  </script>
+  <?php endif; ?>
 </body>

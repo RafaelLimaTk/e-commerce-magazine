@@ -39,7 +39,7 @@ class IndexController extends Action {
 
 	public function entrar() {
 		
-		$this->view->login = isset($_GET['login']) ? $_GET['login'] : ''; 
+		$this->view->login = isset($_GET['login']) ? $_GET['login'] : '';
 		$this->render('entrar');
 	}
 

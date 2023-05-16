@@ -43,6 +43,18 @@ class AppController extends Action {
     $valor_parcela_formatado = number_format($valor_parcela, 2, ',', '.');
     return "$num_parcelas"."x"." R$ $valor_parcela_formatado";
 	}
+
+  public function produto() {
+
+    session_start();
+
+    if($_SESSION['ID_User'] != '' && $_SESSION['nome'] !='') {
+
+		  $this->render('produto');
+    } else {
+      header('Location: /entrar?login=erroAutenticar');
+    }
+	}
 }
 
 ?>
