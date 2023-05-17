@@ -63,7 +63,7 @@ class IndexController extends Action {
 		$sexo = isset($_POST['sexo']) ? $_POST['sexo'] : 'm';
 		$usuario->__set('sexo', $sexo);
 		
-		if ($usuario->validarCadastro() && count($usuario->getUsuarioPorCpf()) == 0) {
+		if ($usuario->validarCadastro() && count($usuario->getUsuarioPorCpf()) == 0 && count($usuario->getUsuarioPorEmail()) == 0) {
 				$usuario->salvar();
 				$this->render('entrar');
 		} else {

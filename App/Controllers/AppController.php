@@ -13,7 +13,10 @@ class AppController extends Action {
     session_start();
 
     if($_SESSION['ID_User'] != '' && $_SESSION['nome'] !='') {  
-      
+
+      $usuario = Container::getModel('Usuario');
+      $usuarioLogged = $usuario->logged($_SESSION['ID_User']);
+
       $produto = Container::getModel('Produto');
       $produtos = $produto->getAll();
       $produtosThree = $produto->getThreeProducts();
@@ -30,6 +33,7 @@ class AppController extends Action {
         $pt['imgConvertida'] = 'data:image/jpeg;base64,' . base64_encode($imgData);
       }
 
+      $this->view->usuario = $usuarioLogged;
       $this->view->produtos = $produtos;
       $this->view->produtosThree = $produtosThree;
       $this->render('timeline');

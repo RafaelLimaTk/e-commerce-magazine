@@ -19,8 +19,9 @@
             </div>
           </form>
           <div class="user-box">
-            <a href="/entrar" class="material-symbols-outlined">
-              account_circle
+            <a href="/entrar">
+              <span id="user-circle" class="material-symbols-outlined">account_circle</span>
+              <p>Fazer Login</p>
             </a>
           </div>
           <div class="shopping-box">
@@ -92,7 +93,7 @@
             <div class="produto-info">
               <h3 class="produto-title"><?= $produtosThree['modelo'] ?></h3>
               <p class="description-produto"><?= $produtosThree['Descrição'] ?></p>
-              <a class="link-produto" href="">Compre agora</a>
+              <a class="link-produto" href="/entrar">Compre agora</a>
             </div>
             <div class="img-produto">
               <img src="<?= $produtosThree['imgConvertida'] ?>" alt="produto1">
@@ -137,7 +138,7 @@
                 <h3><?= $produto['modelo'] ?></h3>
                 <p class="description-produto-two-preço">R$<?= $produto['valor'] ?></p>
                 <p>ou <?= $produto['valor_parcelado']?></p>
-                <a href="">
+                <a href="/entrar">
                   <div class="description-produto-two-botton">
                     <p>Compre agora</p>
                   </div>
