@@ -87,4 +87,30 @@ class Usuario extends Model
 
     return $this;
   }
+
+  public function getUsuarioPorEmail()
+  {
+    $query = "select email from usuario where email = :email";
+    $stmt = $this->db->prepare($query);
+    $stmt->bindValue(':email', $this->__get('email'));
+    $stmt->execute();
+
+    return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+  }
+
+  public function logged($id)
+  {
+    $usuarioLogged = array();
+
+    $query = "select nome, sobrenome from usuario where ID_User = :ID_User";
+    $stmt = $this->db->prepare($query);
+    $stmt->bindValue(':ID_User', $id);
+    $stmt->execute();
+
+    if($stmt->rowCount() > 0){
+      $usuarioLogged = $stmt->fetchall(\PDO::FETCH_ASSOC);
+    }
+
+    return $usuarioLogged;
+  }
 }

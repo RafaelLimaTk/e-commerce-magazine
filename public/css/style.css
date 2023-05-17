@@ -96,13 +96,56 @@ input.input-search:focus {
   text-align: center;
 }
 
-.user-box a {
+/*logout*/
+.logout-acount a {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 3px;
+  align-items: center;
+  margin-right: 20px;
+  cursor: pointer;
+  color: #636363;
+}
+
+.logout-acount p {
+  font-size: 0.75rem;
+}
+
+.logout-acount p span {
+  color: #87d81e;
+}
+
+.logout-acount a #logout-box {
   color: #636363;
   font-size: 30px;
   font-weight: 300;
+}
+
+/*fim do logout*/
+
+/*user*/
+.user-box a {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 3px;
+  align-items: center;
   margin-right: 20px;
   cursor: pointer;
+  color: #636363;
 }
+
+.user-box a #user-circle {
+  color: #636363;
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.user-box a p {
+  font-size: 0.75rem;
+}
+/*fim user*/
 
 .shopping-box a {
   color: #8ee91a;
