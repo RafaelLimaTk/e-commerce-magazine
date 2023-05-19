@@ -55,13 +55,43 @@ class AppController extends Action {
 
     if($_SESSION['ID_User'] != '' && $_SESSION['nome'] !='') {
 
-      $produto = Container::getModel('Produto');
+      $usuario = Container::getModel('Usuario');
+      $usuarioLogged = $usuario->logged($_SESSION['ID_User']);
 
+      $produtoId = $_GET['id'];
+
+      $produto = Container::getModel('Produto');
+      $produtoId = $produto->getProductId($produtoId);
+
+      foreach ($produtoId as &$p) {
+        $valor_desc = $p['valor_desc'];
+        $desconto = $this->desconto($valor_desc, 15);
+        $p['desconto'] = $desconto;
+        $p['valor_parcelado'] = $this->parcelaDesc($p['desconto']);
+        $imgData = $p['img_prod'];
+        $p['imgConvertida'] = 'data:image/jpeg;base64,' . base64_encode($imgData);
+      }
+
+      $this->view->usuario = $usuarioLogged;
+      $this->view->produtoId = $produtoId;
 		  $this->render('produto');
     } else {
       header('Location: /entrar?login=erroAutenticar');
     }
 	}
+
+  public function desconto($valor_desconto, $porcentagem) {
+    $desconto = $valor_desconto - ($valor_desconto * ($porcentagem / 100));
+    $valor_desconto_formatado = number_format($desconto, 2, ',', '.');
+    return $valor_desconto_formatado;
+}
+
+  public function parcelaDesc($desconto) {
+    $valor_parcela_desc = (int)$desconto / 6;
+    $valor_parcela_formatado = number_format($valor_parcela_desc, 2, ',', '.');
+    return "<strong>6x R$ $valor_parcela_formatado</strong>";
+}
+
 }
 
 ?>

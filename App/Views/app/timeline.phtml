@@ -96,7 +96,7 @@
             <div class="produto-info">
               <h3 class="produto-title"><?= $produtosThree['modelo'] ?></h3>
               <p class="description-produto"><?= $produtosThree['Descrição'] ?></p>
-              <a class="link-produto" href="/produto">Compre agora</a>
+              <a class="link-produto" href="/produto?id=<?= $produtosThree['ID_Prod'] ?>">Compre agora</a>
             </div>
             <div class="img-produto">
               <img src="<?= $produtosThree['imgConvertida'] ?>" alt="produto1">
@@ -142,7 +142,7 @@
                 <p>ou <?= $produto['valor_parcelado']?></p>
                 <a href="">
                   <div class="description-produto-two-botton">
-                    <a href="/produto">
+                    <a href="/produto?id=<?= $produto['ID_Prod'] ?>">
                       <p>Compre agora</p>
                     </a>
                   </div>

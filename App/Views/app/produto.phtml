@@ -15,9 +15,13 @@
               </i>
             </div>
           </form>
-          <div class="user-box">
-            <a href="/entrar" class="material-symbols-outlined">
-              account_circle
+          <div class="logout-acount">
+            <a href="/sair" class="">
+              <span id="logout-box" class="material-symbols-outlined">logout</span>
+              <?php foreach($this->view->usuario as $user) { ?>
+              <p>Olá, <span><?= ucfirst($user['nome']).' '.ucfirst($user['sobrenome']) ?></span><br>Clique aqui para
+                sair</p>
+              <?php } ?>
             </a>
           </div>
           <div class="shopping-box">
@@ -34,7 +38,7 @@
             <h4>categoria</h4>
           </div>
           <ul class="nav-link">
-            <li><a href="/">Home</a></li>
+            <li><a href="/timeline">Home</a></li>
             <li><a class="actived" href="#produto">Produtos</a></li>
             <li><a href="#sobre-nos">Sobre</a></li>
           </ul>
@@ -43,18 +47,19 @@
     </aside>
     <section class="produto">
       <div class="container-pag-produto">
+        <?php foreach($this->view->produtoId as $ID_Prod => $produto) { ?>
         <div class="area-produto">
           <div class="area-produto-img">
-            <img src="img/69825_2_3.jpg" alt="produto">
+            <img src="<?= $produto['imgConvertida'] ?>" alt="produto">
           </div>
           <div class="area-produto-info">
             <div class="info-pag-produto">
-              <p>Esfoliante Ekos</p>
-              <p>Natura</p>
+              <p><?= $produto['modelo'] ?></p>
+              <p><?= $produto['marca'] ?></p>
               <p>Cod. 119165 - Esfoliante Ekos - 200g</p>
-              <p>R$ 150,90</p>
-              <p>R$ 99,99</p>
-              <p>À vista ou até 3x de 33,30 sem juros</p>
+              <p>R$ <?= $produto['valor'] ?></p>
+              <p>R$ <?= $produto['desconto'] ?></p>
+              <p>À vista ou até <?= $produto['valor_parcelado']?> sem juros</p>
             </div>
             <div class="produto-comprar">
               <div data-app="product.quantity" id="quantidade">
@@ -74,6 +79,7 @@
             </div>
           </div>
         </div>
+        <?php } ?>
       </div>
       </div>
     </section>
