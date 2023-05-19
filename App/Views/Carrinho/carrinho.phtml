@@ -1,0 +1,88 @@
+<head>
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <main id="home">
+    <aside id="aside">
+      <div class="container">
+        <div class="logo-box">
+          <img src="/img/Imagem.png" alt="logo-magazine esperança">
+          <p class="name-logo">Magazine
+          <p class="segundo-name-logo"> Esperança</p>
+          </p>
+          <form class="form-search" action="">
+            <input class="input-search" type="search" placeholder="Busque seu produto aqui...">
+            <div class="sarch-icon">
+              <i class="material-symbols-outlined">
+                search
+              </i>
+            </div>
+          </form>
+          <div class="user-box">
+            <a href="/entrar" class="material-symbols-outlined">
+              account_circle
+            </a>
+          </div>
+          <div class="shopping-box">
+            <a href="#" class="material-symbols-outlined">
+              shopping_bag
+            </a>
+          </div>
+        </div>
+        <div class="nav">
+          <div class="categoria">
+            <i class="material-symbols-outlined">
+              menu
+            </i>
+            <h4>categoria</h4>
+          </div>
+          <ul class="nav-link">
+            <li><a href="#home">Home</a></li>
+            <li><a class="" href="#produto">Produtos</a></li>
+            <li><a href="#sobre-nos">Sobre</a></li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+    <section class="carrinho">
+      <div class="container-pag-carrinho">
+        <div class="area-carrinho">
+          <div class='produto-carrinho'>
+            <div class="area-carrinho-img">
+              <img src="img/69825_2_3.jpg" alt="Img dos carrinhos">
+            </div>
+            <div class="container-info-prod-carrinho">
+              <div class="info-prod-carrinho">
+                <p>Nome do Produto</p>
+                <p>Descrição do produto</p>
+                <p>R$ 0,00</p>
+                <p>Quantidade:</p>
+                <div data-app="product.quantity" id="quantidade">
+                  <span id="span_erro_carrinho" class="blocoAlerta" style="display:none;">Selecione uma opção para
+                    variação do produto</span>
+                  <input type="button" id="plus" value='-' onclick="process(-1)" />
+                  <input id="quant" name="quant" class="text" size="1" type="text" value="1" maxlength="5" />
+                  <input type="button" id="minus" value='+' onclick="process(1)">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="area-carrinho-total">
+            <div class="total-carrinho">
+              <p>Total: R$ 0,00</p>
+            </div>
+            <div class='area-button-carrinho-comprar'>
+              <button class='button-carrinho-comprar'type="submit">COMPRAR</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+
+  </main>
+</body>

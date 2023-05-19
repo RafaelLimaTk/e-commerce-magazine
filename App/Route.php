@@ -38,6 +38,12 @@ class Route extends Bootstrap {
 			'action' => 'produto'
 		);
 
+		$routes['carrinho'] = array(
+			'route' => '/carrinho',
+			'controller' => 'carrinhoController',
+			'action' => 'carrinho'
+		);
+
 		$this->setRoutes($routes);
 	}
 
