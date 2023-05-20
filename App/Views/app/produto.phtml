@@ -39,8 +39,13 @@
           </div>
           <ul class="nav-link">
             <li><a href="/timeline">Home</a></li>
-            <li><a class="actived" href="#produto">Produtos</a></li>
-            <li><a href="#sobre-nos">Sobre</a></li>
+            <li><a href="#produto">Produtos</a></li>
+            <li><a href="#sobre-nos">Perfumaria</a></li>
+            <li><a href="#sobre-nos">Corpo e Banho</a></li>
+            <li><a href="#sobre-nos">Cabelos</a></li>
+            <li><a href="#sobre-nos">Skincare</a></li>
+            <li><a href="#sobre-nos">Maquiagem</a></li>
+            <li><a href="/timeline#sobre-nos">Sobre</a></li>
           </ul>
         </div>
       </div>
@@ -48,33 +53,35 @@
     <section class="produto">
       <div class="container-pag-produto">
         <?php foreach($this->view->produtoId as $ID_Prod => $produto) { ?>
-        <div class="area-produto">
-          <div class="area-produto-img">
-            <img src="<?= $produto['imgConvertida'] ?>" alt="produto">
-          </div>
-          <div class="area-produto-info">
-            <div class="info-pag-produto">
-              <p><?= $produto['modelo'] ?></p>
-              <p><?= $produto['marca'] ?></p>
-              <p>Cod. 119165 - Esfoliante Ekos - 200g</p>
-              <p>R$ <?= $produto['valor'] ?></p>
-              <p>R$ <?= $produto['desconto'] ?></p>
-              <p>À vista ou até <?= $produto['valor_parcelado']?> sem juros</p>
+        <div class="container">
+          <div class="area-produto">
+            <div class="area-produto-img">
+              <img src="<?= $produto['imgConvertida'] ?>" alt="produto">
             </div>
-            <div class="produto-comprar">
-              <div data-app="product.quantity" id="quantidade">
-                <span id="span_erro_carrinho" class="blocoAlerta" style="display:none;">Selecione uma opção para
-                  variação do produto</span>
-                <input type="button" id="plus" value='-' onclick="process(-1)" />
-                <input id="quant" name="quant" class="text" size="1" type="text" value="1" maxlength="5" />
-                <input type="button" id="minus" value='+' onclick="process(1)">
+            <div class="area-produto-info">
+              <div class="info-pag-produto">
+                <p><?= $produto['modelo'] ?></p>
+                <p><?= $produto['marca'] ?></p>
+                <p><?= $produto['Descrição_curta'] ?></p>
+                <p>R$ <?= $produto['valor'] ?></p>
+                <p>R$ <?= $produto['desconto'] ?></p>
+                <p>À vista ou até <?= $produto['valor_parcelado']?> sem juros</p>
               </div>
-              <div class="button-comprar">
-                <a href="">
-                  <div class="description-tela-produto-botton">
-                    <p>COMPRE AGORA</p>
-                  </div>
-                </a>
+              <div class="produto-comprar">
+                <div data-app="product.quantity" id="quantidade">
+                  <span id="span_erro_carrinho" class="blocoAlerta" style="display:none;">Selecione uma opção para
+                    variação do produto</span>
+                  <input type="button" id="plus" value='-' onclick="process(-1)" />
+                  <input id="quant" name="quant" class="text" size="1" type="text" value="1" maxlength="5" />
+                  <input type="button" id="minus" value='+' onclick="process(1)">
+                </div>
+                <div class="button-comprar">
+                  <a href="">
+                    <div class="description-tela-produto-botton">
+                      <p>COMPRE AGORA</p>
+                    </div>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -83,39 +90,117 @@
       </div>
       </div>
     </section>
-    <section id="sobre-nos">
+    <section>
       <div class="container">
-        <div class="card-sobre-nos">
-          <div class="sn-info1">
-            <h4>História e evolução da empresa</h4>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur numquam ut, architecto
-              quae
-              excepturi aliquam, veniam a id nam ipsam non quo cupiditate mollitia esse placeat tempore
-              dignissimos, voluptatibus culpa! Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Architecto eius necessitatibus, harum laborum accusamus, iusto, quo illo cupiditate corrupti
-              consequuntur optio minima odio consequatur velit! Voluptatibus delectus distinctio ab in.
-              Lorem
-              ipsum dolor sit amet consectetur adipisicing elit. Ullam consequatur mollitia laboriosam
-              dicta
-              nam sapiente quidem. Iste rerum facere, libero molestiae quas repellat provident nesciunt
-              aliquam nobis quos aspernatur corrupti!</p>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
+              type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Descrição</button>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <?php foreach($this->view->produtoId as $ID_Prod => $produto) { ?>
+          <div class="tab-pane fade show active mt-3 d-flex justify-content-between align-items-center"
+            id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+            <div>
+              <?= $produto['Descrição'] ?>
+            </div>
+            <img src="<?= $produto['imgConvertida'] ?>" alt="produto" style="width:30%;height:auto;">
           </div>
-          <div class="sn-info2">
-            <h4>Sua loja de cosmético e beleza</h4>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur numquam ut, architecto
-              quae
-              excepturi aliquam, veniam a id nam ipsam non quo cupiditate mollitia esse placeat tempore
-              dignissimos, voluptatibus culpa! Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Architecto eius necessitatibus, harum laborum accusamus, iusto, quo illo cupiditate corrupti
-              consequuntur optio minima odio consequatur velit! Voluptatibus delectus distinctio ab in.
-              Lorem
-              ipsum dolor sit amet consectetur adipisicing elit. Ullam consequatur mollitia laboriosam
-              dicta
-              nam sapiente quidem. Iste rerum facere, libero molestiae quas repellat provident nesciunt
-              aliquam nobis quos aspernatur corrupti!</p>
+          <?php } ?>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="indication-product-how">
+        <div class="container">
+          <div class="title-call">
+            <?php 
+                $marcasExibidas = array();
+                foreach ($this->view->produtoMarcaIgual as $ID_Prod => $produto) {
+                    if (!in_array($produto['marca'], $marcasExibidas)) {
+                        echo "<h6>Mais produtos como da " . $produto['marca'] . "</h6>";
+                        $marcasExibidas[] = $produto['marca'];
+                    }
+                }
+            ?>
           </div>
         </div>
-
+      </div>
+    </section>
+    <section id="indication-product">
+      <div class="container">
+        <div class="card-produto-two">
+          <?php foreach($this->view->produtoMarcaIgual as $ID_Prod => $produto) { ?>
+          <div class="produto-two">
+            <div class="informacao-produto">
+              <div class="imagem-produto">
+                <img src="<?= $produto['imgConvertida'] ?>" alt="Imagem do produto 1">
+              </div>
+              <div class="description-produto-two">
+                <h3><?= $produto['modelo'] ?></h3>
+                <p class="description-produto-two-preço">R$<?= $produto['valor'] ?></p>
+                <p>ou <?= $produto['valor_parcelado']?></p>
+                <a href="">
+                  <div class="description-produto-two-botton">
+                    <a href="/produto?id=<?= $produto['ID_Prod'] ?>&marca=<?= $produto['marca'] ?>">
+                      <p>Compre agora</p>
+                    </a>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <?php } ?>
+        </div>
+    </section>
+    <section id="footer">
+      <div class="container">
+        <div class="footer-context">
+          <div class="product-category">
+            <h1>Produtos</h1>
+            <a href="#">Perfumaria</a>
+            <a href="#">Corpo e banho</a>
+            <a href="#">Skin Care</a>
+            <a href="#">Cabelos</a>
+            <a href="#">Maquiagem</a>
+          </div>
+          <div class="product-category">
+            <h1>Atendimento</h1>
+            <p>
+              <i class="material-symbols-outlined">phone</i>
+              <a
+                href="https://api.whatsapp.com/send?phone=5575981019016&text=Ol%C3%A1!%20Bem-vindo%20%C3%A0%20Magazine%20Esperan%C3%A7a,%20a%20sua%20loja%20de%20confian%C3%A7a.%20Agradecemos%20por%20entrar%20em%20contato%20conosco%20pelo%20WhatsApp.%20Nossa%20equipe%20de%20atendimento%20est%C3%A1%20pronta%20para%20ajud%C3%A1-lo(a).">
+                (75) 98101-9016
+              </a>
+            </p>
+            <p>
+              <i class="material-symbols-outlined">mail</i>
+              magazine.esperanca23@gmail.com
+            </p>
+          </div>
+          <div class="product-category">
+            <h1>Suporte</h1>
+            <a href="#">Trocas e devoluções</a>
+            <a href="#">Dúvidas</a>
+            <a href="#">Cartão fidelidade</a>
+            <a href="#">Faça parte da equipe</a>
+          </div>
+          <div class="product-category-social-network">
+            <a href="http://">
+              <i class="fa-brands fa-facebook" style="color: #ffffff;"></i>
+            </a>
+            <a href="https://www.instagram.com/magazine_esperanca/">
+              <i class="fa-brands fa-instagram" style="color: #ffffff;"></i>
+            </a>
+            <a href="http://">
+              <i class="fa-brands fa-telegram" style="color: #ffffff;"></i>
+            </a>
+          </div>
+        </div>
+        <div class="copy">
+          <h1>&copy 2023 Magazine Esperança. Todos os direitos reservados.</h1>
+        </div>
       </div>
     </section>
   </main>

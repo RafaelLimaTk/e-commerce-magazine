@@ -58,10 +58,20 @@ class AppController extends Action {
       $usuario = Container::getModel('Usuario');
       $usuarioLogged = $usuario->logged($_SESSION['ID_User']);
 
-      $produtoId = $_GET['id'];
+      $ID_Prod = $_GET['id'];
+      $produtoMarca = $_GET['marca'];
 
       $produto = Container::getModel('Produto');
-      $produtoId = $produto->getProductId($produtoId);
+      $produtos = $produto->getAll();
+      $produtoId = $produto->getProductId($ID_Prod);
+      $produtoMarcaIgual = $produto->getProductBrand($ID_Prod, $produtoMarca);
+
+      foreach ($produtos as &$p) {
+        $valor_numerico = $p['valor_numerico'];
+        $p['valor_parcelado'] = $this->parcelas($valor_numerico, 6);
+        $imgData = $p['img_prod'];
+        $p['imgConvertida'] = 'data:image/jpeg;base64,' . base64_encode($imgData);
+      }
 
       foreach ($produtoId as &$p) {
         $valor_desc = $p['valor_desc'];
@@ -72,8 +82,18 @@ class AppController extends Action {
         $p['imgConvertida'] = 'data:image/jpeg;base64,' . base64_encode($imgData);
       }
 
+      foreach ($produtoMarcaIgual as &$p) {
+        
+        $valor_numerico = $p['valor_numerico'];
+        $p['valor_parcelado'] = $this->parcelas($valor_numerico, 6);
+        $imgData = $p['img_prod'];
+        $p['imgConvertida'] = 'data:image/jpeg;base64,' . base64_encode($imgData);
+      }
+
       $this->view->usuario = $usuarioLogged;
       $this->view->produtoId = $produtoId;
+      $this->view->produtoMarcaIgual = $produtoMarcaIgual;
+      $this->view->produtos = $produtos;
 		  $this->render('produto');
     } else {
       header('Location: /entrar?login=erroAutenticar');

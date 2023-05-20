@@ -40,6 +40,11 @@
           <ul class="nav-link">
             <li><a class="actived" href="#home">Home</a></li>
             <li><a href="#produto">Produtos</a></li>
+            <li><a href="#sobre-nos">Perfumaria</a></li>
+            <li><a href="#sobre-nos">Corpo e Banho</a></li>
+            <li><a href="#sobre-nos">Cabelos</a></li>
+            <li><a href="#sobre-nos">Skincare</a></li>
+            <li><a href="#sobre-nos">Maquiagem</a></li>
             <li><a href="#sobre-nos">Sobre</a></li>
           </ul>
         </div>
@@ -92,7 +97,7 @@
           <div class="produto1">
             <div class="produto-info">
               <h3 class="produto-title"><?= $produtosThree['modelo'] ?></h3>
-              <p class="description-produto"><?= $produtosThree['Descrição'] ?></p>
+              <p class="description-produto"><?= $produtosThree['Descrição_curta'] ?></p>
               <a class="link-produto" href="/produto">Compre agora</a>
             </div>
             <div class="img-produto">
@@ -151,16 +156,15 @@
           <?php } ?>
         </div>
     </section>
-
-
     <section id="sobre-nos">
       <div class="container">
         <div class="card-sobre-nos">
           <div class="sn-info1">
             <h4>História e evolução da empresa</h4>
-            <p>Uma consultora de perfumes se tornou líder de vendas, cadastrou <br>consultores e abriu uma pequena loja
+            <p>Começamos como uma consultora de perfumes nos tornando lideres de vendas, cadastramos consultores e
+              abrimos uma pequena loja
               em
-              casa. Ela continuou liderando até abrir uma loja na galeria. Focada na no crescimento, a loja
+              casa. continuamos liderando até abrir uma loja na galeria. focados no crescimento, a loja
               cresceu e se tornou referência em perfumaria, com variedade e qualidade. A história inspira a transformar
               paixão em negócio de sucesso.</p>
           </div>
@@ -173,6 +177,9 @@
         </div>
       </div>
     </section>
+    <section id="img-banner">
+      <img src="img/namorados-home-opções-presentes-desk_0.png" alt="">
+    </section>
     <section id="footer">
       <div class="container">
         <div class="footer-context">
@@ -183,35 +190,42 @@
             <a href="#">Skin Care</a>
             <a href="#">Cabelos</a>
             <a href="#">Maquiagem</a>
-            <a href="#">Desodorante</a>
           </div>
           <div class="product-category">
-            <h1>Produtos</h1>
-            <a href="#">Perfumaria</a>
-            <a href="#">Corpo e banho</a>
-            <a href="#">Skin Care</a>
-            <a href="#">Cabelos</a>
-            <a href="#">Maquiagem</a>
-            <a href="#">Desodorante</a>
+            <h1>Atendimento</h1>
+            <p>
+              <i class="material-symbols-outlined">phone</i>
+              <a
+                href="https://api.whatsapp.com/send?phone=5575981019016&text=Ol%C3%A1!%20Bem-vindo%20%C3%A0%20Magazine%20Esperan%C3%A7a,%20a%20sua%20loja%20de%20confian%C3%A7a.%20Agradecemos%20por%20entrar%20em%20contato%20conosco%20pelo%20WhatsApp.%20Nossa%20equipe%20de%20atendimento%20est%C3%A1%20pronta%20para%20ajud%C3%A1-lo(a).">
+                (75) 98101-9016
+              </a>
+            </p>
+            <p>
+              <i class="material-symbols-outlined">mail</i>
+              magazine.esperanca23@gmail.com
+            </p>
           </div>
           <div class="product-category">
-            <h1>Produtos</h1>
-            <a href="#">Perfumaria</a>
-            <a href="#">Corpo e banho</a>
-            <a href="#">Skin Care</a>
-            <a href="#">Cabelos</a>
-            <a href="#">Maquiagem</a>
-            <a href="#">Desodorante</a>
+            <h1>Suporte</h1>
+            <a href="#">Trocas e devoluções</a>
+            <a href="#">Dúvidas</a>
+            <a href="#">Cartão fidelidade</a>
+            <a href="#">Faça parte da equipe</a>
           </div>
-          <div class="product-category">
-            <h1>Produtos</h1>
-            <a href="#">Perfumaria</a>
-            <a href="#">Corpo e banho</a>
-            <a href="#">Skin Care</a>
-            <a href="#">Cabelos</a>
-            <a href="#">Maquiagem</a>
-            <a href="#">Desodorante</a>
+          <div class="product-category-social-network">
+            <a href="http://">
+              <i class="fa-brands fa-facebook" style="color: #ffffff;"></i>
+            </a>
+            <a href="https://www.instagram.com/magazine_esperanca/">
+              <i class="fa-brands fa-instagram" style="color: #ffffff;"></i>
+            </a>
+            <a href="http://">
+              <i class="fa-brands fa-telegram" style="color: #ffffff;"></i>
+            </a>
           </div>
+        </div>
+        <div class="copy">
+          <h1>&copy 2023 Magazine Esperança. Todos os direitos reservados.</h1>
         </div>
       </div>
     </section>

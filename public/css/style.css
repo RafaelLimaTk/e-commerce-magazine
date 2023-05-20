@@ -870,7 +870,7 @@ p.description-produto-two-preço {
 
 .area-produto {
   display: flex;
-  width: 80%;
+  width: 100%;
   height: 500px;
   justify-content: space-between;
   box-shadow: 0 0 7px 0 rgba(168, 168, 168, 0.25);
@@ -879,14 +879,11 @@ p.description-produto-two-preço {
   margin-bottom: 20;
 }
 
-.area-produto-img {
-  padding: 10px;
-  object-fit: cover;
-}
-
 .area-produto-img img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  border-radius: 5px 0px 0px 5px;
 }
 
 .area-produto-info {
@@ -1048,14 +1045,14 @@ p.description-produto-two-preço {
 }
 
 #footer {
-  padding: 1rem;
+  padding: 2.5rem;
   background-color: #333333;
   color: #f9f9f9;
 }
 
 .footer-context {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .product-category {
@@ -1072,4 +1069,87 @@ p.description-produto-two-preço {
 .product-category a {
   font-size: 0.8rem;
   color: #f9f9f9;
+}
+
+.product-category p {
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #f9f9f9;
+}
+
+.product-category i {
+  font-size: 1.2rem;
+  padding-right: 2px;
+}
+
+.product-category-social-network i {
+  font-size: 3rem;
+  padding: 5px;
+}
+
+.copy h1 {
+  padding-top: 10px;
+  font-size: 0.8rem;
+}
+
+/*tela produto*/
+
+.product-card {
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.product-image img {
+  width: 100%;
+  height: auto;
+}
+
+.product-details {
+  padding: 10px;
+}
+
+.product-details h3 {
+  margin-top: 0;
+}
+
+.buy-button {
+  display: inline-block;
+  background-color: #4caf50;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+#indication-product {
+  margin-bottom: 10px;
+}
+
+#img-banner img {
+  width: 100%;
+}
+/*indicação do produto*/
+.indication-product-how {
+  padding: 30px;
+  text-align: center;
+}
+
+.title-call h6 {
+  display: inline-block;
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.title-call h6::after {
+  content: "";
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 20%;
+  height: 3px;
+  background-color: #8ee91a;
 }
