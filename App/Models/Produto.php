@@ -87,4 +87,18 @@ class Produto extends Model
 
     return $stmt->fetchAll(\PDO::FETCH_ASSOC);
   }
+
+  public function getAllProduct() {
+    $query = "
+    SELECT ID_Prod, marca, modelo, volume, FORMAT(preco, 2, 'pt_BR') AS valor, CAST(REPLACE(preco, ',', '.') AS DECIMAL(10,2)) AS valor_numerico, fk_catg, img_prod 
+    FROM produto 
+    WHERE modelo LIKE :modelo
+    ";
+
+    $stmt = $this->db->prepare($query);
+    $stmt->bindValue(':modelo', '%'.$this->__get('modelo').'%');
+    $stmt->execute();
+
+    return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+  }
 }

@@ -73,6 +73,28 @@ class IndexController extends Action {
 			$this->render('inscreverse');
 		}
 	}
+
+	public function buscar() {
+
+		$pesquisar = isset($_GET['pesquisar']) ? $_GET['pesquisar'] : '';
+		$produtos = array();
+
+		if($pesquisar) {
+			$produto = Container::getModel('Produto');
+			$produto->__set('modelo', $pesquisar);
+			$produtos = $produto->getAllProduct();
+
+			foreach ($produtos as &$p) {
+				$valor_numerico = $p['valor_numerico'];
+				$p['valor_parcelado'] = $this->parcelas($valor_numerico, 6);
+				$imgData = $p['img_prod'];
+				$p['imgConvertida'] = 'data:image/jpeg;base64,' . base64_encode($imgData);
+			}
+		}
+		
+		$this->view->produtos = $produtos;
+    $this->render('buscar');
+  }
 }
 
 

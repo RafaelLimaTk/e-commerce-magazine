@@ -104,14 +104,42 @@ class AppController extends Action {
     $desconto = $valor_desconto - ($valor_desconto * ($porcentagem / 100));
     $valor_desconto_formatado = number_format($desconto, 2, ',', '.');
     return $valor_desconto_formatado;
-}
+  }
 
   public function parcelaDesc($desconto) {
     $valor_parcela_desc = (int)$desconto / 6;
     $valor_parcela_formatado = number_format($valor_parcela_desc, 2, ',', '.');
     return "<strong>6x R$ $valor_parcela_formatado</strong>";
-}
+  }
 
+  public function buscarProduto() {
+    
+    session_start();
+
+    if($_SESSION['ID_User'] != '' && $_SESSION['nome'] !='') {
+      $usuario = Container::getModel('Usuario');
+      $usuarioLogged = $usuario->logged($_SESSION['ID_User']);
+    }
+		$pesquisar = isset($_GET['pesquisar']) ? $_GET['pesquisar'] : '';
+		$produtos = array();
+
+		if($pesquisar) {
+			$produto = Container::getModel('Produto');
+			$produto->__set('modelo', $pesquisar);
+			$produtos = $produto->getAllProduct();
+
+			foreach ($produtos as &$p) {
+				$valor_numerico = $p['valor_numerico'];
+				$p['valor_parcelado'] = $this->parcelas($valor_numerico, 6);
+				$imgData = $p['img_prod'];
+				$p['imgConvertida'] = 'data:image/jpeg;base64,' . base64_encode($imgData);
+			}
+		}
+    
+    $this->view->usuario = $usuarioLogged;
+		$this->view->produtos = $produtos;
+    $this->render('buscarProduto');
+  }
 }
 
 ?>

@@ -2,57 +2,60 @@
 <html lang="pt-BR">
 
 <body>
-  <main id="home">
-    <aside id="aside">
-      <div class="container">
-        <div class="logo-box">
+  <aside id="aside">
+    <div class="container">
+      <div class="logo-box">
+        <a class="logo" href="/timeline">
           <img src="/img/Imagem.png" alt="logo-magazine esperança">
           <p class="name-logo">Magazine
-          <p class="segundo-name-logo"> Esperança</p>
-          </p>
-          <form class="form-search" action="">
-            <input class="input-search" type="search" placeholder="Busque seu produto aqui...">
-            <div class="sarch-icon">
-              <i class="material-symbols-outlined">
-                search
-              </i>
-            </div>
-          </form>
-          <div class="logout-acount">
-            <a href="/sair" class="">
-              <span id="logout-box" class="material-symbols-outlined">logout</span>
-              <?php foreach($this->view->usuario as $user) { ?>
-              <p>Olá, <span><?= ucfirst($user['nome']).' '.ucfirst($user['sobrenome']) ?></span><br>Clique aqui para
-                sair</p>
-              <?php } ?>
-            </a>
-          </div>
-          <div class="shopping-box">
-            <a href="#" class="material-symbols-outlined">
-              shopping_bag
-            </a>
-          </div>
-        </div>
-        <div class="nav">
-          <div class="categoria">
+            <p class="segundo-name-logo"> Esperança</p>
+        </a>
+        </p>
+        <form id="pesquisarProduto" class="form-search">
+          <input id="buscarProduto" name="pesquisar" class="input-search" type="search"
+            placeholder="Busque seu produto aqui...">
+          <div class="sarch-icon">
             <i class="material-symbols-outlined">
-              menu
+              search
             </i>
-            <h4>categoria</h4>
           </div>
-          <ul class="nav-link">
-            <li><a class="actived" href="#home">Home</a></li>
-            <li><a href="#produto">Produtos</a></li>
-            <li><a href="#sobre-nos">Perfumaria</a></li>
-            <li><a href="#sobre-nos">Corpo e Banho</a></li>
-            <li><a href="#sobre-nos">Cabelos</a></li>
-            <li><a href="#sobre-nos">Skincare</a></li>
-            <li><a href="#sobre-nos">Maquiagem</a></li>
-            <li><a href="#sobre-nos">Sobre</a></li>
-          </ul>
+        </form>
+        <div class="logout-acount">
+          <a href="/sair" class="">
+            <span id="logout-box" class="material-symbols-outlined">logout</span>
+            <?php foreach($this->view->usuario as $user) { ?>
+            <p>Olá, <span><?= ucfirst($user['nome']).' '.ucfirst($user['sobrenome']) ?></span><br>Clique aqui para
+              sair</p>
+            <?php } ?>
+          </a>
+        </div>
+        <div class="shopping-box">
+          <a href="#" class="material-symbols-outlined">
+            shopping_bag
+          </a>
         </div>
       </div>
-    </aside>
+      <div class="nav">
+        <div class="categoria">
+          <i class="material-symbols-outlined">
+            menu
+          </i>
+          <h4>categoria</h4>
+        </div>
+        <ul class="nav-link">
+          <li><a class="actived" href="#home">Home</a></li>
+          <li><a href="#produto">Produtos</a></li>
+          <li><a href="#sobre-nos">Perfumaria</a></li>
+          <li><a href="#sobre-nos">Corpo e Banho</a></li>
+          <li><a href="#sobre-nos">Cabelos</a></li>
+          <li><a href="#sobre-nos">Skincare</a></li>
+          <li><a href="#sobre-nos">Maquiagem</a></li>
+          <li><a href="#sobre-nos">Sobre</a></li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+  <main id="home">
     <section class="banner">
       <div class="container">
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">

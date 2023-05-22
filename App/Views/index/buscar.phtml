@@ -1,0 +1,33 @@
+<body>
+  <div class="container">
+    <div class="indication-product-how-search">
+      <div class="title-call-search">
+        <h6>Produtos</h6>
+      </div>
+    </div>
+    <section id="grid-product-search">
+      <?php foreach($this->view->produtos as $ID_Prod => $produto) { ?>
+      <div class="grid-product-search">
+        <div class="grid-product-search-spacing">
+          <div class="card-product-search">
+            <a href="/produto?id=<?= $produto['ID_Prod'] ?>&marca=<?= $produto['marca'] ?>">
+              <img src="<?= $produto['imgConvertida'] ?>" alt="">
+              <div class="product-info-search">
+                <h6 class="product-title-search">
+                  <strong><?= $produto['modelo'] ?></strong>
+                  - <p><?= $produto['marca'] ?></p>
+                </h6>
+                <div class="product-price-search">
+                  <h6 class="product-price-search-number">
+                    R$<?= $produto['valor'] ?>
+                  </h6>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <?php } ?>
+    </section>
+  </div>
+</body>

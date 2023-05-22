@@ -1,20 +1,14 @@
 <body>
-  <main id="home">
-    <aside id="aside">
-      <div class="container">
-        <div class="logo-box">
+  <aside id="aside">
+    <div class="container">
+      <div class="logo-box-product">
+        <a class="logo" href="/timeline">
           <img src="/img/Imagem.png" alt="logo-magazine esperança">
           <p class="name-logo">Magazine
-          <p class="segundo-name-logo"> Esperança</p>
-          </p>
-          <form class="form-search" action="">
-            <input class="input-search" type="search" placeholder="Busque seu produto aqui...">
-            <div class="sarch-icon">
-              <i class="material-symbols-outlined">
-                search
-              </i>
-            </div>
-          </form>
+            <p class="segundo-name-logo"> Esperança</p>
+        </a>
+
+        <div class="container-logount-shopping">
           <div class="logout-acount">
             <a href="/sair" class="">
               <span id="logout-box" class="material-symbols-outlined">logout</span>
@@ -30,26 +24,29 @@
             </a>
           </div>
         </div>
-        <div class="nav">
-          <div class="categoria">
-            <i class="material-symbols-outlined">
-              menu
-            </i>
-            <h4>categoria</h4>
-          </div>
-          <ul class="nav-link">
-            <li><a href="/timeline">Home</a></li>
-            <li><a href="#produto">Produtos</a></li>
-            <li><a href="#sobre-nos">Perfumaria</a></li>
-            <li><a href="#sobre-nos">Corpo e Banho</a></li>
-            <li><a href="#sobre-nos">Cabelos</a></li>
-            <li><a href="#sobre-nos">Skincare</a></li>
-            <li><a href="#sobre-nos">Maquiagem</a></li>
-            <li><a href="/timeline#sobre-nos">Sobre</a></li>
-          </ul>
-        </div>
+
       </div>
-    </aside>
+      <div class="nav">
+        <div class="categoria">
+          <i class="material-symbols-outlined">
+            menu
+          </i>
+          <h4>categoria</h4>
+        </div>
+        <ul class="nav-link">
+          <li><a href="/timeline">Home</a></li>
+          <li><a href="#produto">Produtos</a></li>
+          <li><a href="#sobre-nos">Perfumaria</a></li>
+          <li><a href="#sobre-nos">Corpo e Banho</a></li>
+          <li><a href="#sobre-nos">Cabelos</a></li>
+          <li><a href="#sobre-nos">Skincare</a></li>
+          <li><a href="#sobre-nos">Maquiagem</a></li>
+          <li><a href="#sobre-nos">Sobre</a></li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+  <main id="home">
     <section class="produto">
       <div class="container-pag-produto">
         <?php foreach($this->view->produtoId as $ID_Prod => $produto) { ?>
