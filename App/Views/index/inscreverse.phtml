@@ -30,7 +30,7 @@
             <input class="field-input" type="password" name="senha-2" id="password-2" placeholder="Repetir senha">
           </label>
           <label class="label" for="CPF"> CPF
-            <input class="field-input" type="number" name="cpf" id="cpf" placeholder="000.000.000-00">
+            <input class="field-input" type="text" name="cpf" id="cpf" placeholder="000.000.000-00" maxlength="14">
           </label>
           <label class="label" for="data-nasc"> Data de nascimento
             <input class="field-input" type="date" name="data-nasc" id="data-nasc" placeholder="DD/MM/AAAA">
@@ -57,7 +57,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
-  <?php if ($this->view->erroCadastro) : ?>
+  <?php if (isset($this->view->erroCadastro)) : ?>
   <script>
   Toastify({
     text: "Erro ao tentar realizar o cadastro, verifique os campos e preencha novamente!",
@@ -66,6 +66,20 @@
     gravity: "top",
     position: "right",
     backgroundColor: "#FFA500",
+    className: "custom-toast",
+  }).showToast();
+  </script>
+  <?php endif; ?>
+
+  <?php if (isset($this->view->erroSenhas)) : ?>
+  <script>
+  Toastify({
+    text: "As senhas não correspondem. Por favor, verifique novamente.",
+    duration: 5000,
+    close: true,
+    gravity: "top",
+    position: "right",
+    backgroundColor: "#4169E1",
     className: "custom-toast",
   }).showToast();
   </script>

@@ -45,29 +45,37 @@ class IndexController extends Action {
 
 	public function inscreverse() {
 
-		$this->view->erroCadastro = false;
+		isset($this->view->erroSenhas);
+		isset($this->view->erroCadastro);
 
 		$this->render('inscreverse');
 	}
 
 	public function registrar() {
+	
+	$usuario = Container::getModel('Usuario');
 
-		$usuario = Container::getModel('Usuario');
+	$usuario->__set('nome', $_POST['nome']);
+	$usuario->__set('sobrenome', $_POST['Sobrenome']);
+	$usuario->__set('email', $_POST['email']);
+	$usuario->__set('senha', md5($_POST['senha']));
+	$usuario->__set('CPF', $_POST['cpf']);
+	$usuario->__set('dataNasc', $_POST['data-nasc']);
+	$sexo = isset($_POST['sexo']) ? $_POST['sexo'] : 'm';
+	$usuario->__set('sexo', $sexo);
+	
+	$senha = $_POST['senha'];
+	$senha2 = $_POST['senha-2'];
 
-		$usuario->__set('nome', $_POST['nome']);
-		$usuario->__set('sobrenome', $_POST['Sobrenome']);
-		$usuario->__set('email', $_POST['email']);
-		$usuario->__set('senha', md5($_POST['senha']));
-		$usuario->__set('CPF', $_POST['cpf']);
-		$usuario->__set('dataNasc', $_POST['data-nasc']);
-		$sexo = isset($_POST['sexo']) ? $_POST['sexo'] : 'm';
-		$usuario->__set('sexo', $sexo);
-		
-		if ($usuario->validarCadastro() && count($usuario->getUsuarioPorCpf()) == 0 
+	if ($senha !== $senha2) {
+		$this->view->erroSenhas = true;
+
+		$this->render('inscreverse');
+	} else if ($usuario->validarCadastro() && count($usuario->getUsuarioPorCpf()) == 0 
 		&& count($usuario->getUsuarioPorEmail()) == 0) {
 				$usuario->salvar();
 				$this->render('entrar');
-		} else {
+	} else {
 			$this->view->erroCadastro = true;
 			
 			$this->render('inscreverse');

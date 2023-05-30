@@ -81,7 +81,8 @@
                   <input type="button" id="minus" value='+' onclick="process(1)">
                 </div>
                 <div class="button-comprar">
-                  <a href="">
+                  <a id="buy-button" data-nome="<?= $produto['modelo'] ?>" data-valor="<?= $produto['valor'] ?>"
+                    data-quantidade="1" style="cursor: pointer;">
                     <div class="description-tela-produto-botton">
                       <p>COMPRE AGORA</p>
                     </div>
@@ -209,4 +210,34 @@
       </div>
     </section>
   </main>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+  </script>
+
+  <script>
+  // Quando o botão de compra for clicado
+  $(document).on('click', '#buy-button', function(e) {
+    e.preventDefault(); // Evita que o link seja seguido
+
+    // Obtenha as informações do produto do atributo data
+    var nome = $(this).data('nome');
+    var valor = $(this).data('valor');
+    var quantidade = $(this).data('quantidade');
+
+    // Construa a mensagem do WhatsApp com as informações do produto
+    var mensagem = 'Olá, estou interessado em comprar o produto: \n';
+    mensagem += 'nome: ' + nome + '\n';
+    mensagem += 'valor: R$ ' + valor + '\n';
+    mensagem += 'quantidade: ' + quantidade;
+
+    // Codifique a mensagem para uso no link do WhatsApp
+    var mensagemCodificada = encodeURIComponent(mensagem);
+
+    // Redirecione o cliente para o WhatsApp com a mensagem preenchida
+    window.location.href = 'https://wa.me/5575981019016?text=' + mensagemCodificada;
+  });
+  </script>
+
 </body>
