@@ -122,7 +122,7 @@ class Produto extends Model
     SELECT p.ID_Prod, p.marca, p.modelo, p.volume, FORMAT(p.preco, 2, 'pt_BR') AS valor, CAST(REPLACE(p.preco, ',', '.') AS DECIMAL(10,2)) AS valor_numerico, p.fk_catg, p.img_prod 
     FROM categoria c 
     JOIN produto p ON c.ID_Catg = p.fk_catg 
-
+    WHERE c.nome_cat = :categoria;
     ";
 
     $stmt = $this->db->prepare($query);
