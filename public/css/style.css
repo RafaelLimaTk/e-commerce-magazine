@@ -364,6 +364,12 @@ h4 {
   margin: 0;
 }
 
+.tela-produtos {
+  margin-top: 60px;
+  margin-bottom: 40px;
+  margin: 40px 20px 40px 20px;
+}
+
 /*produto-two*/
 .produtos {
   margin-bottom: 20px;

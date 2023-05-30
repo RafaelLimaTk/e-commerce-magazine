@@ -112,6 +112,40 @@ class AppController extends Action {
     return "<strong>6x R$ $valor_parcela_formatado</strong>";
   }
 
+  //funcão para a tela de produtos geral
+  public function produtos() {
+    session_start();
+
+    if($_SESSION['ID_User'] != '' && $_SESSION['nome'] !='') {  
+
+      $usuario = Container::getModel('Usuario');
+      $usuarioLogged = $usuario->logged($_SESSION['ID_User']);
+      
+      $produto = Container::getModel('Produto');
+      $produtos = $produto->getAll();
+      $produtosThree = $produto->getThreeProducts();
+  
+      foreach ($produtos as &$p) {
+        $valor_numerico = $p['valor_numerico'];
+        $p['valor_parcelado'] = $this->parcelas($valor_numerico, 6);
+        $imgData = $p['img_prod'];
+        $p['imgConvertida'] = 'data:image/jpeg;base64,' . base64_encode($imgData);
+      }
+
+      foreach ($produtosThree as &$pt) {
+        $imgData = $pt['img_prod'];
+        $pt['imgConvertida'] = 'data:image/jpeg;base64,' . base64_encode($imgData);
+      }
+
+      $this->view->usuario = $usuarioLogged;
+      $this->view->produtos = $produtos;
+      $this->view->produtosThree = $produtosThree;
+      $this->render('produtos');
+    } else {
+      header('Location: /entrar?login=erroAutenticar');
+    }
+  }
+
   public function buscarProduto() {
     
     session_start();
