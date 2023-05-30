@@ -1302,3 +1302,9 @@ p.description-produto-two-preço {
     transform: rotate(360deg);
   }
 }
+
+.tela-produtos {
+  margin-top: 60px;
+  margin-bottom: 40px;
+  margin: 40px 20px 40px 20px;
+}

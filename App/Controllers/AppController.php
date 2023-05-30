@@ -140,6 +140,44 @@ class AppController extends Action {
 		$this->view->produtos = $produtos;
     $this->render('buscarProduto');
   }
+
+  public function produtos() {
+    session_start();
+
+    if($_SESSION['ID_User'] != '' && $_SESSION['nome'] !='') {  
+
+      $usuario = Container::getModel('Usuario');
+      $usuarioLogged = $usuario->logged($_SESSION['ID_User']);
+
+      $produtoByCategoria = isset($_GET['categoria']) ? $_GET['categoria'] : null;
+
+      $produto = Container::getModel('Produto');
+      $produtos = $produto->getAllProducts();
+      $produtoCategoria = $produto->getProductByCategory($produtoByCategoria);
+
+      foreach ($produtos as &$p) {
+        $valor_numerico = $p['valor_numerico'];
+        $p['valor_parcelado'] = $this->parcelas($valor_numerico, 6);
+        $imgData = $p['img_prod'];
+        $p['imgConvertida'] = 'data:image/jpeg;base64,' . base64_encode($imgData);
+      }
+
+      foreach ($produtoCategoria as &$p) {
+        
+        $valor_numerico = $p['valor_numerico'];
+        $p['valor_parcelado'] = $this->parcelas($valor_numerico, 6);
+        $imgData = $p['img_prod'];
+        $p['imgConvertida'] = 'data:image/jpeg;base64,' . base64_encode($imgData);
+      }
+
+      $this->view->produtoCategoria = $produtoCategoria;
+      $this->view->usuario = $usuarioLogged;
+      $this->view->produtos = $produtos;
+      $this->render('produtos');
+    } else {
+      header('Location: /entrar?login=erroAutenticar');
+    }
+  }
 }
 
 ?>

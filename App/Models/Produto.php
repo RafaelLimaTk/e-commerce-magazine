@@ -41,6 +41,21 @@ class Produto extends Model
     return $stmt->fetchAll(\PDO::FETCH_ASSOC);
   }
 
+  public function getAllProducts() {
+    $query = "
+    
+    SELECT ID_Prod, marca, modelo, volume, FORMAT(preco, 2, 'pt_BR') AS valor, CAST(REPLACE(preco, ',', '.') AS DECIMAL(10,2)) AS valor_numerico, fk_catg, img_prod 
+    FROM produto 
+    WHERE ID_Prod NOT IN ('16', '17', '19') 
+    ORDER BY RAND() 
+    ";
+
+    $stmt = $this->db->prepare($query);
+    $stmt->execute();
+
+    return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+  }
+
   public function getThreeProducts() {
     $query = "
     
@@ -97,6 +112,22 @@ class Produto extends Model
 
     $stmt = $this->db->prepare($query);
     $stmt->bindValue(':modelo', '%'.$this->__get('modelo').'%');
+    $stmt->execute();
+
+    return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+  }
+
+  public function getProductByCategory($produtoCategoria) {
+    $query = "
+    SELECT p.ID_Prod, p.marca, p.modelo, p.volume, FORMAT(p.preco, 2, 'pt_BR') AS valor, CAST(REPLACE(p.preco, ',', '.') AS DECIMAL(10,2)) AS valor_numerico, p.fk_catg, p.img_prod 
+    FROM categoria c 
+    JOIN produto p ON c.ID_Catg = p.fk_catg 
+    WHERE c.nome_cat = :categoria;
+    ";
+
+    $stmt = $this->db->prepare($query);
+    $stmt->bindValue(':categoria', $produtoCategoria);
+
     $stmt->execute();
 
     return $stmt->fetchAll(\PDO::FETCH_ASSOC);

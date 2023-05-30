@@ -95,6 +95,25 @@ class IndexController extends Action {
 		$this->view->produtos = $produtos;
     $this->render('buscar');
   }
+
+	public function produtosIndex() {
+
+		$produtoByCategoria = isset($_GET['categoria']) ? $_GET['categoria'] : null;
+
+		$produto = Container::getModel('Produto');
+		$produtoCategoria = $produto->getProductByCategory($produtoByCategoria);
+
+		foreach ($produtoCategoria as &$p) {
+			
+			$valor_numerico = $p['valor_numerico'];
+			$p['valor_parcelado'] = $this->parcelas($valor_numerico, 6);
+			$imgData = $p['img_prod'];
+			$p['imgConvertida'] = 'data:image/jpeg;base64,' . base64_encode($imgData);
+		}
+
+		$this->view->produtoCategoria = $produtoCategoria;
+		$this->render('produtosIndex');
+	}
 }
 
 
