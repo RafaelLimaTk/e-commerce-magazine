@@ -6,12 +6,14 @@
     <aside id="aside">
       <div class="container">
         <div class="logo-box">
-          <img src="/img/Imagem.png" alt="logo-magazine esperança">
-          <p class="name-logo">Magazine
-          <p class="segundo-name-logo"> Esperança</p>
+          <a class="logo" href="/timeline">
+            <img src="/img/Imagem.png" alt="logo-magazine esperança">
+            <p class="name-logo">Magazine
+              <p class="segundo-name-logo"> Esperança</p>
+          </a>
           </p>
-          <form class="form-search" action="">
-            <input class="input-search" type="search" placeholder="Busque seu produto aqui...">
+          <form id="pesquisarProduto" class="form-search">
+            <input id="buscarProduto" name="pesquisar" class="input-search" type="search" placeholder="Busque seu produto aqui...">
             <div class="sarch-icon">
               <i class="material-symbols-outlined">
                 search
@@ -21,9 +23,9 @@
           <div class="logout-acount">
             <a href="/sair" class="">
               <span id="logout-box" class="material-symbols-outlined">logout</span>
-              <?php foreach($this->view->usuario as $user) { ?>
-              <p>Olá, <span><?= ucfirst($user['nome']).' '.ucfirst($user['sobrenome']) ?></span><br>Clique aqui para
-                sair</p>
+              <?php foreach ($this->view->usuario as $user) { ?>
+                <p>Olá, <span><?= ucfirst($user['nome']) . ' ' . ucfirst($user['sobrenome']) ?></span><br>Clique aqui para
+                  sair</p>
               <?php } ?>
             </a>
           </div>
@@ -54,32 +56,32 @@
     <section class="tela-produtos">
       <div class="container">
         <div class="card-produto-two">
-          <?php foreach($this->view->produtos as $ID_Prod => $produto) { ?>
-          <div class="produto-two">
-            <div class="informacao-produto">
-              <div class="imagem-produto">
-                <img src="<?= $produto['imgConvertida'] ?>" alt="Imagem do produto 1">
-              </div>
-              <div class="description-produto-two">
-                <h3><?= $produto['modelo'] ?></h3>
-                <p class="description-produto-two-preço">R$<?= $produto['valor'] ?></p>
-                <p>ou <?= $produto['valor_parcelado']?></p>
-                <a href="">
-                  <div class="description-produto-two-botton">
-                    <a href="/produto?id=<?= $produto['ID_Prod'] ?>&marca=<?= $produto['marca'] ?>">
-                      <p>Compre agora</p>
-                    </a>
-                  </div>
-                </a>
+          <?php foreach ($this->view->produtos as $ID_Prod => $produto) { ?>
+            <div class="produto-two">
+              <div class="informacao-produto">
+                <div class="imagem-produto">
+                  <img src="<?= $produto['imgConvertida'] ?>" alt="Imagem do produto 1">
+                </div>
+                <div class="description-produto-two">
+                  <h3><?= $produto['modelo'] ?></h3>
+                  <p class="description-produto-two-preço">R$<?= $produto['valor'] ?></p>
+                  <p>ou <?= $produto['valor_parcelado'] ?></p>
+                  <a href="">
+                    <div class="description-produto-two-botton">
+                      <a href="/produto?id=<?= $produto['ID_Prod'] ?>&marca=<?= $produto['marca'] ?>">
+                        <p>Compre agora</p>
+                      </a>
+                    </div>
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
           <?php } ?>
         </div>
     </section>
 
     <!-- INICIO RODAPÉ -->
-    
+
     <section id="sobre-nos">
       <div class="container">
         <div class="card-sobre-nos">
@@ -119,8 +121,7 @@
             <h1>Atendimento</h1>
             <p>
               <i class="material-symbols-outlined">phone</i>
-              <a
-                href="https://api.whatsapp.com/send?phone=5575981019016&text=Ol%C3%A1!%20Bem-vindo%20%C3%A0%20Magazine%20Esperan%C3%A7a,%20a%20sua%20loja%20de%20confian%C3%A7a.%20Agradecemos%20por%20entrar%20em%20contato%20conosco%20pelo%20WhatsApp.%20Nossa%20equipe%20de%20atendimento%20est%C3%A1%20pronta%20para%20ajud%C3%A1-lo(a).">
+              <a href="https://api.whatsapp.com/send?phone=5575981019016&text=Ol%C3%A1!%20Bem-vindo%20%C3%A0%20Magazine%20Esperan%C3%A7a,%20a%20sua%20loja%20de%20confian%C3%A7a.%20Agradecemos%20por%20entrar%20em%20contato%20conosco%20pelo%20WhatsApp.%20Nossa%20equipe%20de%20atendimento%20est%C3%A1%20pronta%20para%20ajud%C3%A1-lo(a).">
                 (75) 98101-9016
               </a>
             </p>
